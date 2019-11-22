@@ -17,7 +17,7 @@ export default class LoginScreen extends Component {
           source={require('/logo.png')}
           />
         <TextInput
-          style={{height: 40, justifyContent: 'center', alignItems: 'center'}}
+          style={{height: 40, textAlign: 'center'}}
           placeholder="Enter your netID"
           onChangeText={(text) => this.setState({text})}
           value={this.state.text}
