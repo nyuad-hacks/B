@@ -31,7 +31,6 @@ export class FlexDirectionBasics extends Component {
   render() {
     return (
       <View style={{flex:1, flexDirection:"column"}}>
-        <Text style={{alignSelf: "center", fontSize: 30}}> Transportation </Text>
         <ScrollView>
           <TransportCard From="NYUAD" To="AUH" Time="3:00" Limit="4"></TransportCard>
           <TransportCard From="NYUAD" To="Kornishe" Time="3:00" Limit="4"></TransportCard>
