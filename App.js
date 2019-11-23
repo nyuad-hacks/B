@@ -2,34 +2,26 @@ import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
-import LoginScreen from './components/LoginScreen';
-import ServicePickerScreen from './components/ServicePickerScreen';
-import FoodAddScreen from './components/FoodAddScreen';
-import TransportAddScreen from './components/TransportAddScreen';
-import FoodViewScreen from './components/FoodViewScreen';
-import TransportViewScreen from './components/TransportViewScreen';
+import sTransport from './components/sTransport.js';
+import sTransportAdd from './components/sTransportAdd.js';
+import sLogin from './components/sLogin.js';
+import sMain from './components/sMain.js';
+import sFood from './components/sFood.js';
+import sFoodAdd from './components/sFoodAdd.js';
+
 
 const RootStack = createStackNavigator(
   {
-    Login: LoginScreen,
-    ServicePicker: ServicePickerScreen,
-    FoodAdd: FoodAddScreen,
-    TransportAdd: TransportAddScreen,
-    FoodView: FoodViewScreen,
-    TransportView: TransportViewScreen,
+    sFood: sFood,
+    sFoodAdd: sFoodAdd,
+    sTransport: sTransport,
+    sTransportAdd: sTransportAdd,
+    sLogin: sLogin,
+    sMain: sMain,
   },
   {
-    initialRouteName: 'Login',
-    navigationOptions: {
-      headerStyle: {
-        backgroundColor: '#777777',
-      },
-      headerTintColor: '#fff',
-      headerTitleStyle: {
-        fontWeight: 'bold',
-      },
-    },
-  },
+    initialRouteName: 'sLogin'
+  }
 );
 
 const RootContainer = createAppContainer(RootStack);
@@ -40,11 +32,44 @@ export default class App extends React.Component {
   }
 }
 
+/*import * as React from 'react';
+import { Text, View, StyleSheet } from 'react-native';
+import Constants from 'expo-constants';
+
+// You can import from local files
+import AssetExample from './components/AssetExample';
+
+// or any pure javascript modules available in npm
+import { Card } from 'react-native-paper';
+
+export default class App extends React.Component {
+  render() {
+    return (
+      <View style={styles.container}>
+        <Text style={styles.paragraph}>
+          Change code in the editor and watch it change on your phone! Save to get a shareable url.
+        </Text>
+        <Card>
+          <AssetExample />
+        </Card>
+      </View>
+    );
+  }
+}
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
     justifyContent: 'center',
+    paddingTop: Constants.statusBarHeight,
+    backgroundColor: '#ecf0f1',
+    padding: 8,
+  },
+  paragraph: {
+    margin: 24,
+    fontSize: 18,
+    fontWeight: 'bold',
+    textAlign: 'center',
   },
 });
+*/
