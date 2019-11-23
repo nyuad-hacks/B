@@ -25,11 +25,9 @@ class Inputs extends Component {
     return (
         <View style = {styles.container}>
           <Image
-          
-          source={require('/logoSavr.PNG')}
-          style={{width: 200, height: 200}}
+            style={{width: 100, height: 100}}
+            source={require('./logoSavr.png')}
           />
-
           
           <TextInput style = {styles.input}
             onSubmitEditing={() => { this.submit(); }}
@@ -55,7 +53,8 @@ export default Inputs
 
 const styles = StyleSheet.create({
    container: {
-      paddingTop: 23
+      paddingTop: 23,
+      alignItems: 'center',
    },
    input: {
       margin: 15,

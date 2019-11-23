@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, Text, View, Image } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import sTransport from './components/sTransport.js';
@@ -8,6 +8,38 @@ import sLogin from './components/sLogin.js';
 import sMain from './components/sMain.js';
 import sFood from './components/sFood.js';
 import sFoodAdd from './components/sFoodAdd.js';
+import { Asset } from 'expo-asset';
+import { AppLoading } from 'expo';
+
+export class Cache extends React.Component {
+  state = {
+    isReady: false,
+  };
+
+  render() {
+    if (!this.state.isReady) {
+      return (
+        <AppLoading
+          startAsync={() => this._cacheResourcesAsync()}
+          onFinish={() => this.setState({ isReady: true })}
+          onError={console.warn}
+        />
+      );
+    }
+
+    return (
+      <View style={{ flex: 1 }}>
+        <Image source={require('./components/logoSavr.png')} />
+      </View>
+    );
+  }
+
+  async _cacheResourcesAsync() {
+    return Asset.loadAsync([
+      require('./components/logoSavr.png'),
+    ]);
+  }
+}
 
 
 const RootStack = createStackNavigator(

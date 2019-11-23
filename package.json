@@ -1,7 +1,7 @@
 {
-  "name": "supportive-apple",
+  "name": "github.com/nyuad-hacks/savr",
   "version": "0.0.0",
-  "description": "No description",
+  "description": "nyuad-hacks/savr @ Nov 23, 2019",
   "author": null,
   "private": true,
   "main": "node_modules/expo/AppEntry.js",

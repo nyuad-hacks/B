@@ -3,7 +3,7 @@ import { View, Text, TouchableOpacity, TextInput, StyleSheet, Alert } from 'reac
 
 class Inputs extends Component {
   static navigationOptions = {
-    title: 'Add a Transportation Item'
+    title: 'Add an Order'
   };
   state = {
     Restaurant: '',
@@ -21,21 +21,19 @@ class Inputs extends Component {
   };
   submit = () => {
     if(this.state.From != "" &&
-       this.state.To != "" &&
        this.state.Time != "" &&
        this.state.Number != "" &&
        !isNaN(parseInt(this.state.Number)) &&
        parseInt(this.state.Number) <= 20 &&
        parseInt(this.state.Number) > 0) {
-      global.travelObj.push({
+      global.orderObj.push({
         From: this.state.From,
-        To: this.state.To,
         Time: this.state.Time,
         Limit: this.state.Number,
         NetIDs: global.netid
       });
       const {navigate} = this.props.navigation;
-      navigate('sTransport');
+      navigate('sFood');
     } else {
       Alert.alert('Warning!', 'Check your data!');
     }
@@ -44,7 +42,7 @@ class Inputs extends Component {
     return (
         <View style = {styles.container}>
           <TextInput style = {styles.input}
-            onSubmitEditing={() => { this.To.focus(); }}
+            onSubmitEditing={() => { this.Time.focus(); }}
 
             underlineColorAndroid = "transparent"
             placeholder = " Restaurant"
@@ -53,7 +51,6 @@ class Inputs extends Component {
             returnKeyType = 'next'
             onChangeText = {this.handleFrom}/>
         
-          
           <TextInput style = {styles.input}
             ref={(input) => { this.Time = input; }}
             onSubmitEditing={() => { this.Number.focus(); }}
@@ -64,6 +61,17 @@ class Inputs extends Component {
             autoCapitalize = "none"
             returnKeyType = 'next'
             onChangeText = {this.handleTime}/>
+
+          <TextInput style = {styles.input}
+            ref={(input) => { this.Number = input; }}
+            onSubmitEditing={() => { this.submit(); }}
+
+            underlineColorAndroid = "transparent"
+            placeholder = "Order Limit"
+            placeholderTextColor = {global.colorP+'77'}
+            autoCapitalize = "none"
+            keyboardType = "numeric"
+            onChangeText = {this.handleNumber}/>
           
           <TouchableOpacity
               style = {styles.submitButton}
